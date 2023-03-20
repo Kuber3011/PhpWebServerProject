@@ -1,0 +1,9 @@
+.board{    
+    padding: 5px;
+    border: 2px solid white;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+}
