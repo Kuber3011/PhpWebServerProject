@@ -49,11 +49,7 @@ $(document).ready(function(){
         {
             name: "img11",
             path: "images\\ks (11).jpg"
-        },
-        {
-            name: "img12",
-            path: "images\\ks (12).jpg"
-        },
+        },        
         {
             name: "img13",
             path: "images\\ks (13).jpg"
