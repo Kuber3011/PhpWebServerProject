@@ -49,7 +49,11 @@ $(document).ready(function(){
         {
             name: "img11",
             path: "images\\ks (11).jpg"
-        },        
+        },
+        {
+            name: "img12",
+            path: "images\\ks (12).jpg"
+        },
         {
             name: "img13",
             path: "images\\ks (13).jpg"
@@ -77,10 +81,6 @@ $(document).ready(function(){
         {
             name: "img19",
             path: "images\\ks (19).jpg"
-        },
-        {
-            name: "img20",
-            path: "images\\ks (20).jpg"
         },
         {
             name: "img21",
@@ -140,8 +140,8 @@ $(document).ready(function(){
         if(card1_id == card2_id){
             console.log("matched")
             cards_matched += 1
-            card[chosen1].setAttribute('src', 'images\\ks (26).png')
-            card[chosen2].setAttribute('src', 'images\\ks (26).png')
+            card[chosen1].setAttribute('src', 'images\\ks (26).png')    
+            card[chosen2].setAttribute('src', 'images\\ks (26).png')    
             card[chosen1].removeEventListener('click', cardflip)
             card[chosen2].removeEventListener('click', cardflip)
             if(cards_matched == pairs){
@@ -152,6 +152,7 @@ $(document).ready(function(){
             card[chosen1].setAttribute('src', 'images\\ks (1).png')
             card[chosen2].setAttribute('src', 'images\\ks (1).png')            
         }
+
         var change_moves = Number(document.getElementById("move").innerHTML) 
         console.log("moves:", change_moves)
         document.getElementById("move").innerHTML  = change_moves + 1
@@ -160,17 +161,20 @@ $(document).ready(function(){
     }
 
     function cardflip(){      
-        var selected_card_id = this.getAttribute('card_id') //returns id to compare
-        var sel_arrid = this.getAttribute('arr_id')         //returns placement in array
+        var selected_card_id = this.getAttribute('card_id') //returns card-id to compare
+        var sel_arrid = this.getAttribute('arr_id')         //returns placement in card array
         console.log("array id: ", sel_arrid)        
         var back_img = this.getAttribute('path')
         this.setAttribute('src', back_img)        
         cards_chosen_id.push(selected_card_id)
-        chosen_arrid.push(sel_arrid)
-        console.log("sel_arrid", chosen_arrid)        
-        console.log("cards_chosen_id: "+cards_chosen_id)
-        console.log("length"+cards_chosen_id.length)
-
+        chosen_arrid.push(sel_arrid)        
+        
+        //Starting score time when player flips the first card
+        if(Number(document.getElementById("move").innerHTML) == 0){
+            game_starttime = Date.now()  
+        }
+        
+        //Checking for match if two cards flipped
         if(cards_chosen_id.length == 2){ 
             console.log("checkformatchcalled")           
             setTimeout(checkformatch, 500)            
@@ -180,9 +184,10 @@ $(document).ready(function(){
     function gamewon(){        
         var game_endtime = Date.now()
         var score = (game_endtime - game_starttime)/1000
-        alert("Your Score: "+ score+"seconds")
-        console.log("Score: ", score)
+        alert("Your Score: "+ score+"seconds")        
         document.cookie = 'score='+score;
+        var level_won = Number(document.getElementById("level").innerHTML)
+        document.cookie = 'level_won='+level_won;
 
         if (confirm("Wanna Play Again") == true){
             location.reload()
@@ -192,7 +197,5 @@ $(document).ready(function(){
 
     }     
     
-})
-
-    
+})    
         
