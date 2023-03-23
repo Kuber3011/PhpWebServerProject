@@ -21,7 +21,6 @@
     <script src="javascript/cardarray_js.js"></script
 </head>
 <body>
-    <center>
         <?php              
             echo '<h1>Welcome '.$name.'</h1>';
             echo '<h2 align="center">Level: '.$lev.'</h2>';
@@ -40,9 +39,18 @@
             }
             echo '</div>';
             echo '<h2 align="right">Previous Score: '.$score.'seconds</h2>';
-            echo '<div class = "tester"></div>';
+            echo '<button type="button" id="game_restart" onclick="game_restart()">Restart</button>';
+            echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
+            echo '<button type="button" id="game_stop" onclick="game_stop()">Stop Game</button>';
         ?>
-    </center>
+            <script>
+            function game_restart(){
+                if (confirm("Wanna Restart?") == true) location.reload()
+            }
+            function game_stop(){
+                if (confirm("CLose the game?") == true) location.href = "process.php"
+            }
+        </script>
 </body>
 </html>
 
