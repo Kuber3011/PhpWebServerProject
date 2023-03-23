@@ -8,13 +8,10 @@ $(document).ready(function(){
     var pairs = card.length/2   
 
     //having an array of random indexes from 0..totalcards based on selected level
-
-    for(i=0;i<pairs;i++){
+   for(i=0;i<pairs;i++){
         shuffle_cards.push(i)
     }
-    for(i=0;i<pairs;i++){
-        shuffle_cards.push(i)
-    }
+    shuffle_cards = shuffle_cards.concat(shuffle_cards)
     shuffle_cards = shuffle_cards.sort(() => Math.random() - 0.5)
 
     for(i=0;i<card.length;i++){
@@ -88,8 +85,7 @@ $(document).ready(function(){
             location.reload()
         }else{
             location.href = "process.php"
-        }        
-
+        } 
     }     
     
 })    
