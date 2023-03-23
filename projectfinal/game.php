@@ -18,6 +18,7 @@
     <script src="javascript/jquery-3.6.1.min.js"></script>
     <script src="javascript/cookieFnc.js"></script>
     <script src="javascript/gameplay.js"></script>
+    <script src="javascript/cardarray_js.js"></script
 </head>
 <body>
     <center>
